@@ -87,3 +87,4 @@
 - Implement validation for the provided data, including checking for the text field being non-empty, the existence of the associated user, and the existence of tags.
 - Create a new note if all validations pass and return a success response.
 
+### Exercise 8: Add Swagger to the Project

@@ -1,8 +1,8 @@
 ﻿using SEDC.MoviesApp.Enums;
 
-namespace SEDC.MoviesApp.DTOs;
+namespace SEDC.MoviesApp.Models;
 
-public class UpdateMovieDto
+public class Movie
 {
     public int Id { get; set; }
     public string Title { get; set; }

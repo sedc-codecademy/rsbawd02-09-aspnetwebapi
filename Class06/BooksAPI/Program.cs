@@ -10,6 +10,9 @@ namespace BooksAPI
 
             builder.Services.AddControllers();
 
+            // adding swagger here
+            builder.Services.AddSwaggerGen();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -18,6 +21,12 @@ namespace BooksAPI
 
             app.UseAuthorization();
 
+            // use swagger if development mode is on
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
 
             app.MapControllers();
 

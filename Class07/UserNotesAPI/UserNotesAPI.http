@@ -1,0 +1,6 @@
+@UserNotesAPI_HostAddress = http://localhost:5053
+
+GET {{UserNotesAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

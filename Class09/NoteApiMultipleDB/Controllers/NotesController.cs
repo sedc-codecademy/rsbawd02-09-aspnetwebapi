@@ -62,5 +62,37 @@ namespace NoteApiMultipleDB.Controllers
                 return StatusCode(500);
             }
         }
+
+        [HttpGet]
+        [Route("get/{id}")]
+        public IActionResult GetById(int id)
+        {
+            try
+            {
+                Note note = _noteRepository.GetById(id);
+                
+                return Ok(note);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
+
+        [HttpPut]
+        [Route("update")]
+        public IActionResult Update([FromBody] Note model)
+        {
+            try
+            {
+                _noteRepository.Update(model);
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
     }
 }

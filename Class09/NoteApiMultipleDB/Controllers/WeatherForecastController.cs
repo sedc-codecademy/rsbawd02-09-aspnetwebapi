@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using NoteApiMultipleDB.Abstraction;
 
 namespace NoteApiMultipleDB.Controllers
 {
@@ -13,7 +14,8 @@ namespace NoteApiMultipleDB.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, 
+            INoteRepository noteRepository)
         {
             _logger = logger;
         }

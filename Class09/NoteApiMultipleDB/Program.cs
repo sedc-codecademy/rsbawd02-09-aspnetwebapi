@@ -11,10 +11,10 @@ namespace NoteApiMultipleDB
 
             // Add services to the container.
 
-            string noteTakingDBConnectionString 
-                = "---------------";
+            string noteTakingDBConnectionString = "YOUR CONNECTION STRING";
 
-            builder.Services.AddTransient<INoteRepository>(x => new NoteADORepository(noteTakingDBConnectionString));
+            // builder.Services.AddTransient<INoteRepository>(x => new NoteADORepository(noteTakingDBConnectionString));
+            builder.Services.AddTransient<INoteRepository>(x => new NoteDapperRepository(noteTakingDBConnectionString));
 
             builder.Services.AddControllers();
 

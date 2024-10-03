@@ -97,5 +97,16 @@ namespace NoteApiMultipleDB.Repositories
             sqlConnection.Close();
         }
 
+        public Note GetById(int id)
+        {
+            // for homework!
+            throw new NotImplementedException();
+        }
+
+        public void Update(Note model)
+        {
+            // for homework!
+            throw new NotImplementedException();
+        }
     }
 }

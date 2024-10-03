@@ -7,5 +7,7 @@ namespace NoteApiMultipleDB.Abstraction
         void Add(Note entity);
         List<Note> GetAll();
         void Delete(Note entity);
+        Note GetById(int id);   
+        void Update(Note model);
     }
 }

@@ -15,6 +15,7 @@ namespace NoteApiMultipleDB
 
             // builder.Services.AddTransient<INoteRepository>(x => new NoteADORepository(noteTakingDBConnectionString));
             builder.Services.AddTransient<INoteRepository>(x => new NoteDapperRepository(noteTakingDBConnectionString));
+            // regiseter user repostory here
 
             builder.Services.AddControllers();
 

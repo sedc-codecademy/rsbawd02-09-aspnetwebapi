@@ -21,7 +21,7 @@ public partial class NoteTakingDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=avdemoacademy.database.windows.net;Database=NoteTakingDB;User Id=toor;Password=12345678Abc");
+        => optionsBuilder.UseSqlServer("YOUR CONNECTION STRING");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

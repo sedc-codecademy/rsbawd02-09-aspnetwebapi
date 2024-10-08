@@ -1,6 +1,6 @@
-﻿using SEDC.MoviesApp.Enums;
+﻿using Our.MoviesApp.Enums;
 
-namespace SEDC.MoviesApp.DTOs;
+namespace Our.MoviesApp.DTOs;
 
 public class UpdateMovieDto
 {

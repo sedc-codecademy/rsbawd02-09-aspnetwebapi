@@ -1,4 +1,4 @@
-﻿namespace SEDC.MoviesApp.Enums;
+﻿namespace Our.MoviesApp.Enums;
 
 public enum GenreEnum
 {

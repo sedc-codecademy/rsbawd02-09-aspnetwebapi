@@ -1,6 +1,6 @@
-﻿using SEDC.MoviesApp.Enums;
+﻿using Our.MoviesApp.Enums;
 
-namespace SEDC.MoviesApp.Models;
+namespace Our.MoviesApp.Models;
 
 public class Movie
 {

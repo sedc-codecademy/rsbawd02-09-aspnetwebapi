@@ -57,8 +57,6 @@ namespace NoteApiMultipleDB.Controllers
             {
                 // for homework
                 throw new NotImplementedException();
-
-                return Ok(note);
             }
             catch (Exception ex)
             {

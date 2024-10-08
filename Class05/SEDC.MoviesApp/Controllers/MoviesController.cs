@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SEDC.MoviesApp.Database;
-using SEDC.MoviesApp.DTOs;
-using SEDC.MoviesApp.Enums;
-using SEDC.MoviesApp.Models;
+using Our.MoviesApp.Database;
+using Our.MoviesApp.DTOs;
+using Our.MoviesApp.Enums;
+using Our.MoviesApp.Models;
 
-namespace SEDC.MoviesApp.Controllers
+namespace Our.MoviesApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

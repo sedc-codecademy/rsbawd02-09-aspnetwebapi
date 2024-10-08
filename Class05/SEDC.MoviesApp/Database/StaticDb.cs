@@ -1,7 +1,7 @@
-﻿using SEDC.MoviesApp.Enums;
-using SEDC.MoviesApp.Models;
+﻿using Our.MoviesApp.Enums;
+using Our.MoviesApp.Models;
 
-namespace SEDC.MoviesApp.Database;
+namespace Our.MoviesApp.Database;
 
 public static class StaticDb
 {

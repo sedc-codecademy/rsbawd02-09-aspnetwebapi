@@ -11,8 +11,8 @@ using SEDC.NotesApp.DataAccess;
 namespace SEDC.NotesApp.DataAccess.Migrations
 {
     [DbContext(typeof(NotesAppDbContext))]
-    [Migration("20220829165304_addedPassword")]
-    partial class addedPassword
+    [Migration("20241010162944_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

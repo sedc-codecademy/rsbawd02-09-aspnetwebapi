@@ -19,7 +19,7 @@ builder.Services.Configure<AppSettings>(appSettings);
 AppSettings appSettingsObject = appSettings.Get<AppSettings>();
 
 //DEPENDENCY INJECTION
-DependencyInjectionHelper.InjectDbContext(builder.Services, "CONNECTION_STRING___NotesAppAuthDb");
+DependencyInjectionHelper.InjectDbContext(builder.Services, "CONNECTION STRING");
 DependencyInjectionHelper.InjectRepositories(builder.Services);
 //DependencyInjectionHelper.InjectAdoRepositories(builder.Services, "Server=.;Database=NotesAppDb;Trusted_Connection=True");
 //DependencyInjectionHelper.InjectDapperRepositories(builder.Services, appSettingsObject.ConnectionString);

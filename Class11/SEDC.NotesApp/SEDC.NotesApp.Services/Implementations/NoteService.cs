@@ -70,6 +70,7 @@ namespace SEDC.NotesApp.Services.Implementations
             {
                 throw new NoteNotFoundException($"Note with id {id} was not found!");
             }
+
             NoteDto noteDto = noteDb.ToNoteDto();
             return noteDto;
         }

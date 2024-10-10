@@ -41,8 +41,10 @@ namespace SEDC.NotesApp.DataAccess.Implementations
 
         public User LoginUser(string username, string hashedPassword)
         {
-            return _notesAppDbContext.Users.FirstOrDefault(x => x.Username.ToLower() == username.ToLower()
-            && x.Password == hashedPassword);
+            return _notesAppDbContext.Users
+                .Where(x => x.Username.ToLower() == username.ToLower())
+                .Where(x => x.Password == hashedPassword)
+                .FirstOrDefault();
         }
 
         public void Update(User entity)

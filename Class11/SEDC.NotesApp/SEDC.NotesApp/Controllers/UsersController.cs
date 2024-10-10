@@ -48,6 +48,10 @@ namespace SEDC.NotesApp.Controllers
                 string token = _userService.LoginUser(loginDto);
                 return Ok(token);
             }
+            catch(UserDataException ude)
+            {
+                return BadRequest("No user with this id");
+            }
             catch (Exception e)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred!");

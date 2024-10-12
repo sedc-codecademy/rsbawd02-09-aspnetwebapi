@@ -19,14 +19,30 @@ builder.Services.Configure<AppSettings>(appSettings);
 AppSettings appSettingsObject = appSettings.Get<AppSettings>();
 
 //DEPENDENCY INJECTION
-DependencyInjectionHelper.InjectDbContext(builder.Services, "CONNECTION STRING");
+DependencyInjectionHelper.InjectDbContext(builder.Services, "");
 DependencyInjectionHelper.InjectRepositories(builder.Services);
 //DependencyInjectionHelper.InjectAdoRepositories(builder.Services, "Server=.;Database=NotesAppDb;Trusted_Connection=True");
 //DependencyInjectionHelper.InjectDapperRepositories(builder.Services, appSettingsObject.ConnectionString);
 DependencyInjectionHelper.InjectServices(builder.Services);
 
 //Configure JWT
+builder.Services.AddAuthentication(x =>
+{
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(x => 
+{
+    x.RequireHttpsMetadata = false;
+    x.SaveToken = true;
 
+    x.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateAudience = false,
+        ValidateIssuer = false,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("ACADEMY_ACADEMY_12345678910"))
+    };
+});
 
 var app = builder.Build();
 

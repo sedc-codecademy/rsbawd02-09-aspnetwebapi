@@ -63,6 +63,15 @@ namespace SEDC.NotesApp.Services.Implementations
             return notesDb.Select(x => x.ToNoteDto()).ToList();
         }
 
+        public List<NoteDto> GetAllUserNotes(int userId)
+        {
+            var notesDb = _noteRepository
+                .GetAll()
+                .Where(n => n.UserId == userId);
+
+            return notesDb.Select(x => x.ToNoteDto()).ToList();
+        }
+
         public NoteDto GetById(int id)
         {
             Note noteDb = _noteRepository.GetById(id);

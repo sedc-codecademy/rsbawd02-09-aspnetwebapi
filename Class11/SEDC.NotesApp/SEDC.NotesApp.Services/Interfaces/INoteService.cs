@@ -9,5 +9,6 @@ namespace SEDC.NotesApp.Services.Interfaces
         void AddNote(AddNoteDto note);
         void UpdateNote(UpdateNoteDto note);
         void DeleteNote(int id);
+        List<NoteDto> GetAllUserNotes(int userId);
     }
 }

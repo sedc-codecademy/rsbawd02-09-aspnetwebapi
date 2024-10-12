@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\SEDC.NotesApp.Constants\SEDC.NotesApp.Constants.csproj" />
     <ProjectReference Include="..\SEDC.NotesApp.Dtos\SEDC.NotesApp.Dtos.csproj" />
     <ProjectReference Include="..\SEDC.NotesApp.Helpers\SEDC.NotesApp.Helpers.csproj" />
     <ProjectReference Include="..\SEDC.NotesApp.Services\SEDC.NotesApp.Services.csproj" />

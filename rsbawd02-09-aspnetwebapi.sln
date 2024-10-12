@@ -71,6 +71,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.NotesApp.Services", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SEDC.NotesApp.Shared", "Class11\SEDC.NotesApp\SEDC.NotesApp.Shared\SEDC.NotesApp.Shared.csproj", "{E6EA8922-8D0B-4AF6-BED6-6375FA14987C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEDC.NotesApp.Constants", "SEDC.NotesApp.Constants\SEDC.NotesApp.Constants.csproj", "{CE66AB72-34AB-4932-A9D0-994749DC0B3F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -169,6 +171,10 @@ Global
 		{E6EA8922-8D0B-4AF6-BED6-6375FA14987C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6EA8922-8D0B-4AF6-BED6-6375FA14987C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6EA8922-8D0B-4AF6-BED6-6375FA14987C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE66AB72-34AB-4932-A9D0-994749DC0B3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE66AB72-34AB-4932-A9D0-994749DC0B3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE66AB72-34AB-4932-A9D0-994749DC0B3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE66AB72-34AB-4932-A9D0-994749DC0B3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -197,6 +203,7 @@ Global
 		{22070B2B-60D4-46E3-BA57-70A377DCD641} = {9663D0BD-6ABC-42B0-AB20-1BE470780592}
 		{5F5EDD97-B010-4346-92EE-DCA725A11017} = {9663D0BD-6ABC-42B0-AB20-1BE470780592}
 		{E6EA8922-8D0B-4AF6-BED6-6375FA14987C} = {9663D0BD-6ABC-42B0-AB20-1BE470780592}
+		{CE66AB72-34AB-4932-A9D0-994749DC0B3F} = {9663D0BD-6ABC-42B0-AB20-1BE470780592}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9178C66D-4F6E-478C-86A2-0301C8C52153}

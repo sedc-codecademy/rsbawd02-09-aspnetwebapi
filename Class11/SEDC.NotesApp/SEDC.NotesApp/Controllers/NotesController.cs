@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SEDC.NotesApp.Constants;
 using SEDC.NotesApp.Dtos;
 using SEDC.NotesApp.Services.Interfaces;
 using SEDC.NotesApp.Shared.CustomExceptions;
@@ -19,15 +20,12 @@ namespace SEDC.NotesApp.Controllers
             _noteService = noteService;
         }
 
-        [Authorize] //the user has to be logged in (provide valid token) while hitting this action (sending request)
+        [Authorize(Roles = UserRoles.ADMIN_ROLE)] //the user has to be logged in (provide valid token) while hitting this action (sending request)
         [HttpGet]
         public ActionResult<List<NoteDto>> Get()
         {
             try
             {
-                //get username from token (Name Claim)
-                string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
                 //get the role claim from token 
                 return Ok(_noteService.GetAllNotes());
             }
@@ -38,6 +36,7 @@ namespace SEDC.NotesApp.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public ActionResult<NoteDto> GetById(int id)
         {
@@ -107,6 +106,29 @@ namespace SEDC.NotesApp.Controllers
             {
                 _noteService.DeleteNote(id);
                 return Ok($"Note with id {id} successfully deleted!");
+            }
+            catch (NoteNotFoundException e)
+            {
+                return NotFound(e.Message); //404
+            }
+            catch (Exception e)
+            {
+                //log
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred, contact the admin!");
+            }
+        }
+
+        [Authorize]
+        [HttpGet("getUserNotes")]
+        public IActionResult GetUserNotes()
+        {
+            //get username from token (Name Claim)
+            int userId = Int32.Parse(User.FindFirst("UserId")?.Value);
+
+            try
+            {
+                var response = _noteService.GetAllUserNotes(userId);
+                return Ok(response);
             }
             catch (NoteNotFoundException e)
             {

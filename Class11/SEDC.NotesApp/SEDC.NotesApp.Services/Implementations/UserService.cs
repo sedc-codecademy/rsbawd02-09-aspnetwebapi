@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using SEDC.NotesApp.Constants;
 using SEDC.NotesApp.DataAccess.Interfaces;
 using SEDC.NotesApp.Domain.Models;
 using SEDC.NotesApp.Dtos.Users;
@@ -21,6 +22,12 @@ namespace SEDC.NotesApp.Services.Implementations
         public UserService(IUserRepository userRepository)
         {
             _userRepository = userRepository;
+        }
+
+        public string Info(int userId)
+        {
+            User user = _userRepository.GetById(userId);
+            return $"{user.Id} - {user.FirstName} {user.LastName} - {user.Username}";
         }
 
         public string LoginUser(LoginUserDto loginDto)
@@ -51,11 +58,15 @@ namespace SEDC.NotesApp.Services.Implementations
 
             List<Claim> userClaims = new List<Claim>()
             {
-                new Claim(ClaimTypes.Name, user.Username),
+                new Claim("UserId", user.Id.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, user.Username),
                 new Claim("userFullName", $"{user.FirstName} {user.LastName}"),
-                new Claim("isAdmin", "False"),
-                new Claim("canAccessAllNotes", "False")
+                new Claim("FirstName", user.FirstName),
+                new Claim("LastName", user.LastName),
             };
+
+            if (user.Username == "zoka")
+                userClaims.Add(new Claim(ClaimTypes.Role, UserRoles.ADMIN_ROLE));
 
             SecurityTokenDescriptor securityTokenDescriptor = new SecurityTokenDescriptor()
             {

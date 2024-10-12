@@ -58,5 +58,15 @@ namespace SEDC.NotesApp.Controllers
             }
         }
 
+
+        [HttpGet("info")]
+        public IActionResult GetUserInfo()
+        {
+            int userId = Int32.Parse(User.FindFirst("UserId")?.Value);
+
+            var response = _userService.Info(userId);
+
+            return Ok(response);
+        }
     }
 }

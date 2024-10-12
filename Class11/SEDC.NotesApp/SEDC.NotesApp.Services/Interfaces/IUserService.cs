@@ -7,5 +7,7 @@ namespace SEDC.NotesApp.Services.Interfaces
     {
         void RegisterUser(RegisterUserDto registerUserDto);
         string LoginUser(LoginUserDto loginDto);
+
+        string Info(int userId);
     }
 }

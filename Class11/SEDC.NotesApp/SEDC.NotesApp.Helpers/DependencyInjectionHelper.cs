@@ -31,7 +31,6 @@ namespace SEDC.NotesApp.Helpers
 
         public static void InjectServices(IServiceCollection services)
         {
-            services.AddTransient<INoteService, NoteService>();
             services.AddTransient<IUserService, UserService>();
         }
 

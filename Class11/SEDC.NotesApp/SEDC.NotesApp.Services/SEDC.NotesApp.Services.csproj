@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\SEDC.NotesApp.Constants\SEDC.NotesApp.Constants.csproj" />
+    <ProjectReference Include="..\SEDC.NotesApp.Constants\SEDC.NotesApp.Constants.csproj" />
     <ProjectReference Include="..\SEDC.NotesApp.DataAccess\SEDC.NotesApp.DataAccess.csproj" />
     <ProjectReference Include="..\SEDC.NotesApp.Dtos\SEDC.NotesApp.Dtos.csproj" />
     <ProjectReference Include="..\SEDC.NotesApp.Mappers\SEDC.NotesApp.Mappers.csproj" />

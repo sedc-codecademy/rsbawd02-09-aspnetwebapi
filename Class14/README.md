@@ -1,93 +1,139 @@
-# Logging and Connecting API to other services 🚁
+# Exercise 1: Implementing CRUD Operations in the `NoteRepository`
 
-## Logging 🔶
+In this exercise, you will work with the `NoteRepository` class, which is responsible for performing CRUD (Create, Read, Update, Delete) operations on notes in the NotesApp database. Your task is to implement the existing methods to make the repository fully functional.
 
-Logging is an integral part of any application. It is the process where we write code that will document a record with some important data when something is executed in the application. Usually, logging is added in important methods that are worth noting that were executed as well as errors so that when something breaks, a developer can open the text file and read what happened. A visual Studio is a great tool for monitoring our code and tracking bugs and errors, but when we deploy our application on some services such as a test server or a production server we do not have the luxury to open Visual Studio and debug. This is where log files come in handy and help us detect problems on the spot.
+## First steps:
 
-### Log messages 🔹
+1. **Database Configuration:**
 
-When logging we create and save messages to a file. logging is usually done in a text file but it can be done in any format the developer sees fit. Sometimes logging is done even in a database. But log messages are very different one from another depending on what happened in the code. That is why there are different types of log messages that represent the nature of the message. When using our own logger these messages can be categorized with our own system, but when working with libraries the messages are usually categorized by a convention called Severity Level Directive by their severity:
+   Adjust the connection string in the Program.cs file to match your database setup.
 
-* Error - An error or exception happened
-* Warning - Nothing is broken but there are some suspicious activities
-* Info - Information that something happened
-* Debug - Some extra data for easier debugging
+2. **Add a Migration:**
 
-### Logging Libraries 🔹
+   Using Entity Framework, create a migration to represent changes in your data model. Use the following command: **add-migration YourMigrationName**
 
-Logging can be done without libraries by creating methods that write in a text file. But if there is a need for extra features and automation libraries are definitely a better option. There are a lot of different logging libraries and all of them have some features that make them unique and easy to log information on our application. Most of them can give automatic information about the inner works of the application, add timestamps automatically, read and write automatically as well as give preset Directives for severity. Some of the more famous ones for .NET applications are:
+3. **Update the Database:**
 
-* Log4net
-* NLog
-* SeriLog
+Apply the migration to update the database schema with the following command: **update-database**
 
-### SeriLog 🔹
 
-All custom loggers need to be configured before they can be used. These configurations are usually trivial and very easy for a basic setup. After they are configured they can be used with out-of-the-box ready methods that log and document things in our application. SeriLog documents a lot of stuff on its own without even writing any log such as starting the application, methods called, timestamps, endpoints hit, responses, SQL queries executed, and so on. The other logs we can write very easily with the **Log** class. The logging is done by stating the severity status first. This way every log is categorized. This library also has the option to log whole objects so in the logs we can see an object instead of just what type it is.
+## Instructions:
 
-#### Install and Configure SeriLog ( program.cs )
+1. **Implement the `Add` method:**
 
-**Nuget packages:**
+   The `Add` method is used to add a new note to the database. Implement this method by adding the provided note entity to the `_notesAppDbContext` and saving the changes to the database using the `SaveChanges` method.
 
-* Serilog -> This is the core NuGet package with the base implementation of the logger
-* Serilog.AspNetCore -> This is a package that lets you easily use an extension to toggle Serilog in an ASP.NET Web Application
-* Serilog.Sinks.File -> This is a package that lets you write logs in to a specific File
+2. **Implement the `Delete` method:**
 
-```csharp asp
-// In Program.cs
-builder.Host.UseSerilog((ctx, lc) => lc
-    .WriteTo.File("logs.txt"));
-```
+   The `Delete` method should delete the given note entity from the database. You need to remove the entity from the `_notesAppDbContext` and then call `SaveChanges` to persist the changes.
 
-#### Using SeriLog
+3. **Implement the `GetAll` method:**
 
-```csharp asp
-// This will log an Information type log
-Log.Information("USER {username} has registered on the map", Username);
-// This will log an Error type log
-Log.Error("USER Error for {userId}.{name}: {message}", UserId, Name, Message);
-// This will log an Error type log but the user object will be presented with all data 
-Log.Error("USER Error for {@user}: {message}", User, Message);
-```
+   The `GetAll` method should return a list of all notes in the database. Ensure that you join the `Notes` table with the `Users` table using the `Include` method. Return the list of notes.
 
-## Connecting other applications to our API 🔶
+4. **Implement the `GetById` method:**
 
-### Microservice structure 🔹
+   The `GetById` method should retrieve a note by its unique identifier (id). Join the `Notes` table with the `Users` table using `Include` and return the first note where the id matches the provided parameter.
 
-Microservice structure and building of projects is a revolutionary way of building applications. It is a very simple concept, instead of building the whole logic inside of one application we can create multiple small applications that will do a certain thing really well independently. After the applications are built they will communicate with each other to create one big implementation and work as one application. This might sound strange, but with this implementation, we can divide logic and have a truly decoupled code as well as code that is reusable for multiple applications. This also means that we can very easily change some parts of the application without concerning the other parts that much. For instance, we can have an application that makes orders and a different application that keeps track of users. We make an authenticated request to the user's application when we need to authenticate a user. If we at some point decide to switch to a different platform for authentication, we will just build a small project that authenticates in a different way. The main application will then just make an authentication request to the new project instead of the old one.
+5. **Implement the `Update` method:**
 
-### HTTPClient 🔹
+   The `Update` method is used to update an existing note in the database. Implement this method by updating the provided note entity within the `_notesAppDbContext` and then call `SaveChanges` to persist the changes.
 
-In order for applications of different types to communicate with an API, they need to communicate in the same language. That language is the HTTP protocol. This is why applications that do not come with features for communication of this kind out of the box, need to use a system for making HTTP requests and getting responses. An HTTP Client is a system that allows an application to communicate through HTTP. The .NET library already has an implementation for an HTTP Client and it can be easily configured and used for making HTTP Requests.
+# Exercise 2: Implementing Note Service Methods
 
-#### Creating and using an HTTP Client
+In this exercise, you will implement the `AddNote`, `GetAllNotes`, and `GetById` methods in the `NoteService` class. The `NoteService` is responsible for managing notes in the NotesApp application.
 
-```csharp asp
-// Creating the HTTP Client
-HttpClient client = new HttpClient();
-// Setting URL
-string url = "www.myapi.com/api/users";
-// Making the call and getting response
-HttpResponseMessage response = client.GetAsync(url).Result;
-// Getting the response body from the response
-string responseBody = response.Content.ReadAsStringAsync().Result;
-```
+## Instructions:
 
-### Another API 🔹
+1. **Implement the `AddNote` Method:**
 
-APIs can communicate with anything as we mentioned before. That means that they can communicate with different APIs as well. In microservice structure, it is common for API applications to communicate with each other creating a network of applications that just request things from each other. The only thing needed for this to work is for the APIs to know the addresses of the other APIs that they need to communicate and label them accordingly. This is usually done in the configuration file ( appsettings.json )
+   - Open the `NoteService` class.
+   - Locate the `AddNote` method. This method is responsible for adding a new note to the database.
+   - Implement the method to perform the following tasks:
+     - Validate the `addNoteDto` input.
+     - Check if the user with the specified `UserId` exists.
+     - Ensure that the `Text` field is not empty and does not exceed 100 characters.
+     - Map the `addNoteDto` to a `Note` domain model.
+     - Add the new note to the database using the `_noteRepository`.
 
-### Console Application 🔹
+2. **Implement the `GetAllNotes` Method:**
 
-Console applications can also be connected to an API. They connect to APIs by using the .NET HTTP Client. With that, they can make a request to APIs and gather data as well as act as simple UI for the developers to perform some actions.
+   - Locate the `GetAllNotes` method in the `NoteService` class. This method retrieves a list of all notes from the database.
+   - Implement the method to perform the following tasks:
+     - Retrieve all notes from the database using the `_noteRepository`.
+     - Map the retrieved `Note` objects to `NoteDto` objects.
+     - Return a list of `NoteDto` objects.
 
-### Front-End 🔹
+3. **Implement the `GetById` Method:**
 
-The most common for web development is to connect a front-end application to an API. The front-end application can be built in any library and system that can send HTTP requests. This is why web applications using javascript can easily connect to APIs and use the data to populate and dynamically change the website. Some JavaScript Libraries have their own HTTP Clients and systems for easier communication with APIs. The only thing to keep track of when building a front-end application that will depend on an API is what the API sends and receives.
+   - Find the `GetById` method in the `NoteService` class. This method retrieves a note by its unique identifier (id).
+   - Implement the method to perform the following tasks:
+     - Retrieve the note with the specified `id` from the database using the `_noteRepository`.
+     - Check if the note exists, and if not, throw a `NoteNotFoundException`.
+     - Map the retrieved `Note` object to a `NoteDto` object.
+     - Return the `NoteDto`.
 
-## Extra Materials 📘
+## Note:
 
-* [SeriLog Writing Logs](https://github.com/serilog/serilog/wiki/Writing-Log-Events)
-* [SeriLog Configuration Documentation](https://github.com/serilog/serilog/wiki/Configuration-Basics)
-* [Logging in .NET Best Practices](https://michaelscodingspot.com/logging-in-dotnet/)
-* [Regex 101](https://regex101.com/)
+- Pay attention to input validation and error handling to ensure the methods handle various scenarios correctly.
+
+By completing this exercise, you will have implemented essential functionality in the `NoteService` for adding, retrieving all notes, and retrieving notes by their unique identifiers.
+
+# Exercise 3: Implementing Controller Actions in ASP.NET Core
+
+In this exercise, you will implement controller actions in an ASP.NET Core application by calling methods from the service layer. The controller is responsible for handling HTTP requests and returning appropriate responses.
+
+## Scenario:
+
+You are working on a NotesApp project, and you need to implement controller actions for managing notes. The `NotesController` interacts with the `INoteService` to perform CRUD operations on notes.
+
+## Instructions:
+
+1. **Implement the `Get` Action:**
+
+   - Open the `NotesController` class.
+   - Locate the `Get` action, which handles HTTP GET requests to retrieve all notes.
+   - Implement the action by calling the `GetAllNotes` method from the `_noteService`.
+   - Return an HTTP 200 status code with the list of `NoteDto` objects as the response.
+
+2. **Implement the `GetById` Action:**
+
+   - Find the `GetById` action in the `NotesController`. This action handles HTTP GET requests to retrieve a single note by its `id`.
+   - Implement the action by calling the `GetById` method from the `_noteService`.
+   - Handle potential exceptions, such as `NoteNotFoundException`, and return the appropriate status codes with error messages.
+
+3. **Implement the `AddNote` Action:**
+
+   - Locate the `AddNote` action, which handles HTTP POST requests to add a new note.
+   - Implement the action by calling the `AddNote` method from the `_noteService` with the provided data from the request body.
+   - Handle potential exceptions, such as `NoteDataException`, and return the appropriate status codes with error messages.
+
+4. Test each of the implemented actions to ensure they work as expected by using tools like Postman or Swagger.
+
+## Note:
+
+- Pay attention to error handling and return the correct status codes and messages based on the outcomes of the service layer methods.
+
+By completing this exercise, you will have implemented controller actions for managing notes in the NotesApp application by calling methods from the service layer.
+
+# Exercise 4: Writing Unit Tests
+
+In this exercise, you will write the unit tests for `NoteService` using `MockNoteRepository` and `MockUserRepository`.
+
+## Scenario:
+
+Inside `SEDC.NotesApp.Test` project add test class and test methods. 
+
+## Instructions:
+
+1. **Implement the `AddNote_InvalidUserId_Exception` Test Method:**
+2. **Implement the `AddNote_EmptyText_Exception` Test Method:**
+3. **Implement the `AddNote_LargerText_Exception` Test Method:**
+4. **Implement the `GetAllNotes_Count` Test Method:**
+5. **Implement the `GetNoteById_InvalidId_Exception` Test Method:**
+6. **Implement the `GetNoteById_ValidUser_NoteDto` Test Method:**
+
+## Note:
+
+- Run the test using Visual Studio, all test should have gree icon, in another words all test should pass.
+

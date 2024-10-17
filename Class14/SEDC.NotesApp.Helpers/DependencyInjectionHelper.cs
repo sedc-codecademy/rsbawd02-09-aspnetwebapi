@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SEDC.NotesApp.DataAccess;
-using SEDC.NotesApp.DataAccess.AdoImplementations;
-using SEDC.NotesApp.DataAccess.DapperImplementations;
 using SEDC.NotesApp.DataAccess.Implementations;
 using SEDC.NotesApp.Domain.Models;
 using SEDC.NotesApp.Services.Implementations;
@@ -35,12 +33,10 @@ namespace SEDC.NotesApp.Helpers
 
         public static void InjectAdoRepositories(IServiceCollection services, string connectionString)
         {
-            services.AddTransient<IRepository<Note>>(x => new NoteAdoRepository(connectionString));
         }
 
         public static void InjectDapperRepositories(IServiceCollection services, string connectionString)
         {
-            services.AddTransient<IRepository<Note>>(x => new NoteDapperRepository(connectionString));
         }
     }
 }

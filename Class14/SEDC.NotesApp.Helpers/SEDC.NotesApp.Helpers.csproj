@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Class11\SEDC.NotesApp\SEDC.NotesApp.DataAccess\SEDC.NotesApp.DataAccess.csproj" />
     <ProjectReference Include="..\SEDC.NotesApp.DataAccess\SEDC.NotesApp.DataAccess.csproj" />
     <ProjectReference Include="..\SEDC.NotesApp.Services\SEDC.NotesApp.Services.csproj" />
   </ItemGroup>

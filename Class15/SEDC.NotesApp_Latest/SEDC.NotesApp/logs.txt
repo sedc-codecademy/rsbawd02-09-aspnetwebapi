@@ -1,0 +1,119 @@
+2023-11-21 19:52:50.737 +01:00 [INF] User profile is available. Using 'C:\Users\almir\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-11-21 19:52:51.134 +01:00 [INF] Now listening on: http://localhost:5051
+2023-11-21 19:52:51.139 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 19:52:51.139 +01:00 [INF] Hosting environment: Development
+2023-11-21 19:52:51.140 +01:00 [INF] Content root path: C:\Users\almir\source\repos\sedc-codecademy\rsbawd01-09-aspnetwebapi\Class14\SEDC.NotesApp_Latest\SEDC.NotesApp\
+2023-11-21 19:52:53.691 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/swagger - -
+2023-11-21 19:52:55.536 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/swagger - - - 301 0 - 1859.9652ms
+2023-11-21 19:52:55.587 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/swagger/index.html - -
+2023-11-21 19:52:56.373 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/swagger/swagger-ui.css - -
+2023-11-21 19:52:56.376 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/swagger/swagger-ui-standalone-preset.js - -
+2023-11-21 19:52:56.376 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/_framework/aspnetcore-browser-refresh.js - -
+2023-11-21 19:52:56.376 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/swagger/swagger-ui-bundle.js - -
+2023-11-21 19:52:56.385 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 8.9455ms
+2023-11-21 19:52:56.391 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/swagger/index.html - - - 200 - text/html;charset=utf-8 804.2151ms
+2023-11-21 19:52:56.421 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/_vs/browserLink - -
+2023-11-21 19:52:56.534 +01:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-11-21 19:52:56.534 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/swagger/swagger-ui.css - - - 200 143632 text/css 161.5135ms
+2023-11-21 19:52:56.544 +01:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-11-21 19:52:56.544 +01:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-11-21 19:52:56.546 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/swagger/swagger-ui-bundle.js - - - 200 1092889 application/javascript 169.9108ms
+2023-11-21 19:52:56.546 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/swagger/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 170.4357ms
+2023-11-21 19:52:56.809 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 387.7110ms
+2023-11-21 19:52:57.362 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/swagger/v1/swagger.json - -
+2023-11-21 19:52:57.443 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/swagger/favicon-32x32.png - -
+2023-11-21 19:52:57.444 +01:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2023-11-21 19:52:57.444 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/swagger/favicon-32x32.png - - - 200 628 image/png 0.4751ms
+2023-11-21 19:52:57.890 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 527.7849ms
+2023-11-21 19:53:56.750 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5051/api/Users/register application/json 149
+2023-11-21 19:53:56.889 +01:00 [INF] Executing endpoint 'SEDC.NotesApp.Controllers.UsersController.Register (SEDC.NotesApp)'
+2023-11-21 19:53:56.911 +01:00 [INF] Route matched with {action = "Register", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(SEDC.NotesApp.Dtos.Users.RegisterUserDto) on controller SEDC.NotesApp.Controllers.UsersController (SEDC.NotesApp).
+2023-11-21 19:53:57.169 +01:00 [INF] Registration model info: FirstName: Almir, LastName: Vuk
+2023-11-21 19:53:58.278 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'NotesAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-11-21 19:53:59.628 +01:00 [INF] Executed DbCommand (87ms) [Parameters=[@__ToLower_0='?' (Size = 30)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[FirstName], [u].[LastName], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+WHERE LOWER([u].[Username]) = @__ToLower_0
+2023-11-21 19:53:59.914 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 50), @p1='?' (Size = 50), @p2='?' (Size = 4000), @p3='?' (Size = 30)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([FirstName], [LastName], [Password], [Username])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [Id]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+2023-11-21 19:53:59.983 +01:00 [INF] Successfully registered almir.vuk.
+2023-11-21 19:53:59.986 +01:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2023-11-21 19:53:59.993 +01:00 [INF] Executed action SEDC.NotesApp.Controllers.UsersController.Register (SEDC.NotesApp) in 3075.5913ms
+2023-11-21 19:53:59.994 +01:00 [INF] Executed endpoint 'SEDC.NotesApp.Controllers.UsersController.Register (SEDC.NotesApp)'
+2023-11-21 19:54:00.004 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5051/api/Users/register application/json 149 - 201 - text/plain;+charset=utf-8 3253.2910ms
+2023-11-21 19:57:28.388 +01:00 [INF] User profile is available. Using 'C:\Users\almir\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-11-21 19:57:28.597 +01:00 [INF] Now listening on: http://localhost:5051
+2023-11-21 19:57:28.600 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 19:57:28.600 +01:00 [INF] Hosting environment: Development
+2023-11-21 19:57:28.600 +01:00 [INF] Content root path: C:\Users\almir\source\repos\sedc-codecademy\rsbawd01-09-aspnetwebapi\Class14\SEDC.NotesApp_Latest\SEDC.NotesApp\
+2023-11-21 19:57:30.500 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/swagger/index.html - -
+2023-11-21 19:57:31.429 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/_framework/aspnetcore-browser-refresh.js - -
+2023-11-21 19:57:31.429 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/_vs/browserLink - -
+2023-11-21 19:57:31.465 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 32.1565ms
+2023-11-21 19:57:31.487 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/swagger/index.html - - - 200 - text/html;charset=utf-8 1000.0079ms
+2023-11-21 19:57:31.532 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 103.2870ms
+2023-11-21 19:57:32.612 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/swagger/v1/swagger.json - -
+2023-11-21 19:57:33.080 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 468.2607ms
+2023-11-21 19:58:01.512 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5051/api/Users/register application/json 149
+2023-11-21 19:58:01.622 +01:00 [INF] Executing endpoint 'SEDC.NotesApp.Controllers.UsersController.Register (SEDC.NotesApp)'
+2023-11-21 19:58:01.646 +01:00 [INF] Route matched with {action = "Register", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(SEDC.NotesApp.Dtos.Users.RegisterUserDto) on controller SEDC.NotesApp.Controllers.UsersController (SEDC.NotesApp).
+2023-11-21 19:58:01.878 +01:00 [INF] Registration model info: FirstName: Almir, LastName: Vuk
+2023-11-21 19:58:02.887 +01:00 [INF] Entity Framework Core 6.0.8 initialized 'NotesAppDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: None
+2023-11-21 19:58:03.985 +01:00 [INF] Executed DbCommand (77ms) [Parameters=[@__ToLower_0='?' (Size = 30)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[FirstName], [u].[LastName], [u].[Password], [u].[Username]
+FROM [Users] AS [u]
+WHERE LOWER([u].[Username]) = @__ToLower_0
+2023-11-21 19:58:04.211 +01:00 [ERR] There was error registering user because of the following error: The username almir.vuk is already in use!
+2023-11-21 19:58:04.218 +01:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-11-21 19:58:04.224 +01:00 [INF] Executed action SEDC.NotesApp.Controllers.UsersController.Register (SEDC.NotesApp) in 2571.8235ms
+2023-11-21 19:58:04.225 +01:00 [INF] Executed endpoint 'SEDC.NotesApp.Controllers.UsersController.Register (SEDC.NotesApp)'
+2023-11-21 19:58:04.236 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5051/api/Users/register application/json 149 - 400 - text/plain;+charset=utf-8 2723.1427ms
+2023-11-21 20:09:19.772 +01:00 [INF] User profile is available. Using 'C:\Users\almir\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-11-21 20:09:20.030 +01:00 [INF] Now listening on: http://localhost:5051
+2023-11-21 20:09:20.034 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 20:09:20.034 +01:00 [INF] Hosting environment: Development
+2023-11-21 20:09:20.034 +01:00 [INF] Content root path: C:\Users\almir\source\repos\sedc-codecademy\rsbawd01-09-aspnetwebapi\Class14\SEDC.NotesApp_Latest\SEDC.NotesApp\
+2023-11-21 20:09:22.217 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/swagger/index.html - -
+2023-11-21 20:09:23.082 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/_vs/browserLink - -
+2023-11-21 20:09:23.082 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/_framework/aspnetcore-browser-refresh.js - -
+2023-11-21 20:09:23.100 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 14.8018ms
+2023-11-21 20:09:23.158 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/swagger/index.html - - - 200 - text/html;charset=utf-8 954.4119ms
+2023-11-21 20:09:23.331 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 248.3532ms
+2023-11-21 20:09:23.890 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/swagger/v1/swagger.json - -
+2023-11-21 20:09:24.681 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 790.5786ms
+2023-11-21 20:09:55.650 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5051/api/Users/register application/json 132
+2023-11-21 20:09:55.753 +01:00 [INF] Executing endpoint 'SEDC.NotesApp.Controllers.UsersController.Register (SEDC.NotesApp)'
+2023-11-21 20:09:55.773 +01:00 [INF] Route matched with {action = "Register", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(SEDC.NotesApp.Dtos.Users.RegisterUserDto) on controller SEDC.NotesApp.Controllers.UsersController (SEDC.NotesApp).
+2023-11-21 20:09:56.023 +01:00 [INF] Registration model info: FirstName: string, LastName: string
+2023-11-21 20:09:56.106 +01:00 [ERR] Internal exception: out of the memory for this calculation
+2023-11-21 20:09:56.112 +01:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2023-11-21 20:09:56.118 +01:00 [INF] Executed action SEDC.NotesApp.Controllers.UsersController.Register (SEDC.NotesApp) in 339.5493ms
+2023-11-21 20:09:56.120 +01:00 [INF] Executed endpoint 'SEDC.NotesApp.Controllers.UsersController.Register (SEDC.NotesApp)'
+2023-11-21 20:09:56.123 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5051/api/Users/register application/json 132 - 500 - text/plain;+charset=utf-8 474.3160ms
+2023-11-21 20:15:03.778 +01:00 [INF] User profile is available. Using 'C:\Users\almir\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-11-21 20:15:05.218 +01:00 [INF] Now listening on: http://localhost:5051
+2023-11-21 20:15:05.226 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-11-21 20:15:05.226 +01:00 [INF] Hosting environment: Development
+2023-11-21 20:15:05.226 +01:00 [INF] Content root path: C:\Users\almir\source\repos\sedc-codecademy\rsbawd01-09-aspnetwebapi\Class14\SEDC.NotesApp_Latest\SEDC.NotesApp\
+2023-11-21 20:15:06.207 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/swagger/index.html - -
+2023-11-21 20:15:07.111 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/_framework/aspnetcore-browser-refresh.js - -
+2023-11-21 20:15:07.111 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/_vs/browserLink - -
+2023-11-21 20:15:07.168 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 78.7037ms
+2023-11-21 20:15:07.245 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/swagger/index.html - - - 200 - text/html;charset=utf-8 1048.8472ms
+2023-11-21 20:15:07.430 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 363.2650ms
+2023-11-21 20:15:07.863 +01:00 [INF] Request starting HTTP/1.1 GET http://localhost:5051/swagger/v1/swagger.json - -
+2023-11-21 20:15:08.368 +01:00 [INF] Request finished HTTP/1.1 GET http://localhost:5051/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 504.7711ms
+2023-11-21 20:15:15.341 +01:00 [INF] Request starting HTTP/1.1 POST http://localhost:5051/api/Users/register application/json 132
+2023-11-21 20:15:15.596 +01:00 [INF] Executing endpoint 'SEDC.NotesApp.Controllers.UsersController.Register (SEDC.NotesApp)'
+2023-11-21 20:15:15.626 +01:00 [INF] Route matched with {action = "Register", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register(SEDC.NotesApp.Dtos.Users.RegisterUserDto) on controller SEDC.NotesApp.Controllers.UsersController (SEDC.NotesApp).
+2023-11-21 20:15:15.945 +01:00 [INF] Registration model info: FirstName: string, LastName: string
+2023-11-21 20:15:16.046 +01:00 [FTL] Internal exception: out of the memory for this calculation
+2023-11-21 20:15:16.053 +01:00 [INF] Executing ObjectResult, writing value of type 'System.String'.
+2023-11-21 20:15:16.061 +01:00 [INF] Executed action SEDC.NotesApp.Controllers.UsersController.Register (SEDC.NotesApp) in 427.9605ms
+2023-11-21 20:15:16.063 +01:00 [INF] Executed endpoint 'SEDC.NotesApp.Controllers.UsersController.Register (SEDC.NotesApp)'
+2023-11-21 20:15:16.068 +01:00 [INF] Request finished HTTP/1.1 POST http://localhost:5051/api/Users/register application/json 132 - 500 - text/plain;+charset=utf-8 726.9184ms
